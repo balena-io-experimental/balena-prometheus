@@ -1,0 +1,26 @@
+ALERT service_down
+  IF up == 0
+  ANNOTATIONS {
+    summary = "Instance {{ $labels.instance }} is down",
+  }
+
+ALERT cpu_threshold_exceeded
+  IF (100 * (1 - avg by(instance)(irate(node_cpu{job='node',mode='idle'}[5m])))) > THRESHOLD_CPU
+  ANNOTATIONS {
+    summary = "Instance {{ $labels.instance }} CPU usage is dangerously high",
+    description = "This device's cpu usage has exceeded the threshold with a value of {{ $value }}.",
+  }
+
+ALERT mem_threshold_exceeded
+  IF (node_memory_MemFree{job='node'} + node_memory_Cached{job='node'} + node_memory_Buffers{job='node'})/1000000 < THRESHOLD_MEM
+  ANNOTATIONS {
+    summary = "Instance {{ $labels.instance }} memory usage is dangerously high",
+    description = "This device's memory usage has exceeded the threshold with a value of {{ $value }}.",
+  }
+
+ALERT filesystem_threshold_exceeded
+  IF node_filesystem_avail{job='node',mountpoint='/'} / node_filesystem_size{job='node'} * 100 < THRESHOLD_FS
+  ANNOTATIONS {
+    summary = "Instance {{ $labels.instance }} filesystem usage is dangerously high",
+    description = "This device's filesystem usage has exceeded the threshold with a value of {{ $value }}.",
+  }

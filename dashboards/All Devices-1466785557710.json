@@ -1,0 +1,413 @@
+{
+  "id": 4,
+  "title": "All Devices",
+  "originalTitle": "All Devices",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "-- Mixed --",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": "65c27ee19f99e04b266baaa87af6aa9a94162145f0d4aace2aacbbca7bf1dd",
+              "expr": "100 * (1 - avg by(instance)(irate(node_cpu{job='node',mode='idle',instance='localhost:9100'}[5m])))",
+              "intervalFactor": 2,
+              "metric": "",
+              "refId": "B",
+              "step": 2
+            },
+            {
+              "datasource": "94a487ee03203b8ee23630296490b919b7491feff73e1353c731db22e12380",
+              "expr": "100 * (1 - avg by(instance)(irate(node_cpu{job='node',mode='idle',instance='localhost:9100'}[5m])))",
+              "intervalFactor": 2,
+              "refId": "C",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "CPU usage",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "-- Mixed --",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": "65c27ee19f99e04b266baaa87af6aa9a94162145f0d4aace2aacbbca7bf1dd",
+              "expr": "(node_memory_MemFree{job='node',instance='localhost:9100'} + node_memory_Cached{job='node',instance='localhost:9100'} + node_memory_Buffers{job='node',instance='localhost:9100'})/1000000",
+              "intervalFactor": 2,
+              "legendFormat": "65c27ee19f99e04b266baaa87af6aa9a94162145f0d4aace2aacbbca7bf1dd",
+              "refId": "B",
+              "step": 2
+            },
+            {
+              "datasource": "94a487ee03203b8ee23630296490b919b7491feff73e1353c731db22e12380",
+              "expr": "(node_memory_MemFree{job='node',instance='localhost:9100'} + node_memory_Cached{job='node',instance='localhost:9100'} + node_memory_Buffers{job='node',instance='localhost:9100'})/1000000",
+              "intervalFactor": 2,
+              "legendFormat": "65c27ee19f99e04b266baaa87af6aa9a94162145f0d4aace2aacbbca7bf1dd",
+              "refId": "C",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Memory",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "Row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "-- Mixed --",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 3,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": "65c27ee19f99e04b266baaa87af6aa9a94162145f0d4aace2aacbbca7bf1dd",
+              "expr": "node_filesystem_avail{job='node',instance='localhost:9100',mountpoint='/'} / node_filesystem_size{job='node'} * 100",
+              "intervalFactor": 2,
+              "legendFormat": "{{ mountpoint }}",
+              "refId": "B",
+              "step": 2
+            },
+            {
+              "datasource": "94a487ee03203b8ee23630296490b919b7491feff73e1353c731db22e12380",
+              "expr": "node_filesystem_avail{job='node',instance='localhost:9100',mountpoint='/'} / node_filesystem_size{job='node'} * 100",
+              "intervalFactor": 2,
+              "legendFormat": "{{ mountpoint }}",
+              "refId": "C",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FIle System",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": "%",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "-- Mixed --",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": "65c27ee19f99e04b266baaa87af6aa9a94162145f0d4aace2aacbbca7bf1dd",
+              "expr": "ALERTS{alertstate=\"firing\"}",
+              "intervalFactor": 2,
+              "legendFormat": "{{ alertname }} {{ device }}",
+              "refId": "B",
+              "step": 2
+            },
+            {
+              "datasource": "94a487ee03203b8ee23630296490b919b7491feff73e1353c731db22e12380",
+              "expr": "ALERTS{alertstate=\"firing\"}",
+              "intervalFactor": 2,
+              "legendFormat": "{{ alertname }} {{ device }}",
+              "refId": "C",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Alerts",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": [
+      {
+        "datasource": "65c27ee19f99e04b266baaa87af6aa9a94162145f0d4aace2aacbbca7bf1dd",
+        "enable": true,
+        "iconColor": "rgba(255, 96, 96, 1)",
+        "name": "65c27"
+      }
+    ]
+  },
+  "schemaVersion": 12,
+  "version": 7,
+  "links": []
+}

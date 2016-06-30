@@ -1,0 +1,15 @@
+global:
+  scrape_interval: "5s"  # This is for demo purposes, usually you’d use 60s
+
+# Rule files specifies a list of files from which rules are read.
+rule_files:
+    - 'alert.rules'
+
+scrape_configs:
+  - job_name: "node"
+    static_configs:
+    - targets:
+        - "localhost:9100"
+      labels:
+        resin_app: RESIN_APP_ID
+        resin_device_uuid: RESIN_DEVICE_UUID

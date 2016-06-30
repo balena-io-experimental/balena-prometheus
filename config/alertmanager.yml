@@ -1,0 +1,32 @@
+route:
+  group_by: [Alertname]
+  # Send all notifications to me.
+  receiver: email-me
+  # When a new group of alerts is created by an incoming alert, wait at
+  # least 'group_wait' to send the initial notification.
+  # This way ensures that you get multiple alerts for the same group that start
+  # firing shortly after another are batched together on the first
+  # notification.
+  group_wait: 30s
+
+  # When the first notification was sent, wait 'group_interval' to send a batch
+  # of new alerts that started firing for that group.
+  group_interval: 5m
+
+  # If an alert has successfully been sent, wait 'repeat_interval' to
+  # resend them.
+  repeat_interval: 3h
+
+templates:
+- '/etc/ALERTMANAGER_PATH/default.tmpl'
+
+receivers:
+- name: email-me
+  email_configs:
+  - to: GMAIL_ACCOUNT
+    from: GMAIL_ACCOUNT
+    smarthost: smtp.gmail.com:587
+    html: '{{ template "email.default.html" . }}'
+    auth_username: "GMAIL_ACCOUNT"
+    auth_identity: "GMAIL_ACCOUNT"
+    auth_password: "GMAIL_AUTH_TOKEN"
