@@ -1,6 +1,6 @@
 ## This is a demo of prometheus.io monitoring system with resin.io
 
-Full documentation can be found on the [resin.io blog](replace-me).
+Full documentation can be found on the [resin.io blog](https://resin.io/blog/monitoring-linux-stats-with-prometheus-io/).
 
 
 TODO:
